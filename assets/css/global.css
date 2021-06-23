@@ -25,6 +25,7 @@ img {
     --grey-dark: #4D5E77;
     --grey-blue: #A1B2CD;
     --grey-light: #E5EAF1;
+    --grey-medium: #EAECF2;
 }
 
 html {
@@ -77,7 +78,7 @@ button, .button {
     transition: filter .2s;
 }
 
-button > img
+button > img,
 .button > img {
     width: 2rem;
     margin-right: 1rem;
@@ -92,6 +93,18 @@ button.outlined,
 
 button:hover, .button:hover {
     filter: brightness(1.2);
+}
+
+button.red,
+.button.red {
+    background: var(--red);
+    color: var(--white);
+}
+
+button.grey,
+.button.grey {
+    background: var(--grey-light);
+    color: var(--grey-dark);
 }
 
 .content header {

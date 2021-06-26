@@ -37,3 +37,17 @@ function handleClick(event, check = true) {
 
     modal.open();
 }
+
+// Seletor de cor de fundo
+document.querySelector('.bg-btn').onclick = () => {
+    document.querySelector('.bg-switch').classList.toggle('active');
+}
+
+let bgButtons = document.querySelectorAll('.color-button');
+
+bgButtons.forEach(color => {
+    color.addEventListener('click', () => {
+        let setColor = color.getAttribute('data-color');
+        document.querySelector(':root').style.setProperty('--background', setColor);
+    });
+});

@@ -69,6 +69,8 @@ button, .button {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 1rem;
+    padding: 1.5rem;
     background: var(--blue);
     color: var(--white);
     font-family: 'Poppins', sans-serif;
@@ -82,6 +84,11 @@ button > img,
 .button > img {
     width: 2rem;
     margin-right: 1rem;
+}
+
+.button .out {
+    width: 2.5rem;
+    filter: invert();
 }
 
 button.outlined,

@@ -161,3 +161,73 @@
     font-weight: 400;
     line-height: 1.9rem;
 }
+
+.bg-switch {
+    width: 20rem;
+    top: 10rem;
+    right: -20rem;
+    position: fixed;
+    padding: 1rem;
+    z-index: 1000;
+    background: var(--black);
+    border-radius: 0 0 0 0.8rem;
+    transition: 0.5s;
+}
+
+.bg-switch.active {
+    right: 0;
+}
+
+.bg-switch h4 {
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+    font-size: 1.5rem;
+    color: var(--white);
+    border-bottom: 1px solid #3333;
+    text-align: center;
+}
+
+.bg-switch .bg-btn {
+    top: 0;
+    left: -7.5rem;
+    position: absolute;
+    padding: 1rem 2rem;
+    background: var(--black);
+    font-size: 3.5rem;
+    color: var(--white);
+    border-radius: 0.8rem 0 0 .8rem;
+    cursor: pointer;
+}
+
+.bg-switch .bg-colors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.bg-switch .bg-colors .color-button {
+    width: 5rem;
+    height: 5rem;
+    display: block;
+    margin: 0.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4.1rem;
+    background: var(--background);
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer i {
+    font-size: 2.5rem;
+    color: var(--black);
+}
+
+.footer a {
+    padding: 0 0.5rem;
+}

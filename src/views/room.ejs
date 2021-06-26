@@ -7,28 +7,63 @@
     <link rel="stylesheet" href="/assets/css/global.css">
     <link rel="stylesheet" href="/assets/css/room.css">
     <link rel="stylesheet" href="/assets/css/modal.css">
+    <script src="https://kit.fontawesome.com/bc4a93c294.js" crossorigin="anonymous"></script>
     <link rel="icon" href="/assets/images/icon.svg" type="image/x-icon">
     <title>Perguntas e Respostas - Rocket.Q</title>
 </head>
 <body>
         <div class="content" id="room">
             <header>
-                <a href="/">
+                <a href="/room/<%= roomId %>">
                     <img src="/assets/images/logo.svg" alt="Rocket.Q Logo">
                 </a>
 
                 <div class="buttons">
                     <div class="button outlined" id="room-id" data-id="<%= roomId %>">
-                        #<%= roomId %>
-                        <img src="/assets/images/copy.svg" alt="Copiar número da sala">
+                        #<span id="roomPass"><%= roomId %></span>
+                        <img src="/assets/images/copy.svg" id="copy" alt="Copiar número da sala">
                     </div>
 
                     <a href="/create-pass" class="button">
                         <img src="/assets/images/users-1.svg" alt="Criar Sala">
                         Criar Sala
                     </a>
+
+                    <a href="/" class="button red">
+                        <img src="/assets/images/exit.svg" alt="Sair" class="out">
+                        Sair
+                    </a>
                 </div>
             </header>
+
+            <div class="bg-switch">
+                <div class="bg-btn">
+                    <i class="fas fa-palette"></i>
+                </div>
+
+                <h4>Escolha sua cor de fundo</h4>
+
+                <div class="bg-colors">
+                    <span class="color-button" data-color="#f6faff" style="background: #f6faff;"></span>
+                    <span class="color-button" data-color="#1d1d1d" style="background: #1d1d1d;"></span>
+                    <span class="color-button" data-color="#0a6ac4" style="background: #0a6ac4;"></span>
+                    <span class="color-button" data-color="#0927ce" style="background: #0927ce;"></span>
+                    <span class="color-button" data-color="#f86019" style="background: #f86019;"></span>
+                    <span class="color-button" data-color="#ff2222" style="background: #ff2222;"></span>
+                    <span class="color-button" data-color="#f31a51" style="background: #f31a51;"></span>
+                    <span class="color-button" data-color="#cb00dd" style="background: #cb00dd;"></span>
+                    <span class="color-button" data-color="#4c00ff" style="background: #4c00ff"></span>
+                    <span class="color-button" data-color="#8051f0" style="background: #8051f0;"></span>
+                    <span class="color-button" data-color="#02b159" style="background: #02b159;"></span>
+                    <span class="color-button" data-color="#12bb1a" style="background: #12bb1a;"></span>
+                    <span class="color-button" data-color="#ff9900" style="background: #ff9900;"></span>
+                    <span class="color-button" data-color="#fcb045" style="background: #fcb045;"></span>
+                    <span class="color-button" data-color="#240b36" style="background: #240b36;"></span>
+                    <span class="color-button" data-color="#ef473a" style="background: #ef473a;"></span>
+                    <span class="color-button" data-color="#0089a8" style="background: #0089a8;"></span>
+                    <span class="color-button" data-color="#dd33aa" style="background: #dd33aa;"></span>
+                </div>
+            </div>
 
             <main>
                 <section id="question-form">
@@ -97,13 +132,17 @@
                                 </div>
                             </div>
                         <% }); %>
-
-                        
                     </div>
                 </section>
             </main>
-        </div>
 
+            <footer class="footer">
+                &copy; 2021 Rocket.Q - Todos os direitos reservados.
+                <a href="https://github.com/matheusz98" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/matheus-costa98/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </footer>
+        </div>
+        
         <div class="modal-wrapper">
             <div class="modal">
                 <h2>Excluir Pergunta</h2>
@@ -122,5 +161,22 @@
         </div>
 
         <script src="/assets/js/main.js" defer type="module"></script>
+        <script>
+
+            const copyId = document.querySelector('#copy');
+
+            copyId.addEventListener('click', () => {
+                const clipboard = document.createElement('textarea');
+                const roomId = document.querySelector('#roomPass');
+                const passId = roomId.innerHTML;
+
+                clipboard.value = passId;
+                document.body.appendChild(clipboard);
+                clipboard.select();
+                document.execCommand('copy');
+                clipboard.remove();
+                alert('Senha copiada com sucesso!');
+            });
+        </script>
     </body>
 </html>

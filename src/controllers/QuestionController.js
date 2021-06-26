@@ -27,16 +27,22 @@ module.exports = {
         const question = req.body.question;
         const roomId = req.params.room;
 
-        await db.run(`INSERT INTO questions(
-            title,
-            room,
-            read
-        )VALUES(
-            "${question}",
-            ${roomId},
-            0
-        )`);
+        if (question == null || question == "") {
+            res.render('empty', { roomId: roomId });
+        } else {
+            await db.run(`INSERT INTO questions(
+                title,
+                room,
+                read
+            )VALUES(
+                "${question}",
+                ${roomId},
+                0
+            )`);
+    
+            res.redirect(`/room/${roomId}`);
+        }
 
-        res.redirect(`/room/${roomId}`);
+        
     }
 }
